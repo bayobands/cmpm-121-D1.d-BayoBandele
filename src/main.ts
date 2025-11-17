@@ -142,9 +142,11 @@ function refreshShopButtons() {
   items.forEach((item) => {
     const btn = upgradeButtons.get(item.id)!;
     const cost = price(item.baseCost, item.count);
-    btn.textContent = `Buy ${item.name} (+${item.rate} ${unit}/sec) — cost ${fmt(
-      cost
-    )} (owned ${item.count})`;
+    btn.textContent = `Buy ${item.name} (+${item.rate} ${unit}/sec) — cost ${
+      fmt(
+        cost,
+      )
+    } (owned ${item.count})`;
     btn.disabled = counter < cost;
   });
 }
