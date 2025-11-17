@@ -189,7 +189,7 @@ function update(time: number) {
 
 requestAnimationFrame(update);
 
-// ==============================
+// =============================
 // INIT
 // ==============================
 rebuildShop();
