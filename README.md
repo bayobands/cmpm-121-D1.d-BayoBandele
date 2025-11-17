@@ -15,9 +15,6 @@ The light background and simple vertical stacking made the UI feel much more pol
 - Cleaned spacing around the counter, button, and shop  
 - Improved readability with consistent typography  
 
-**Where I credited them:**  
-- Added a comment block in my `style.css`  
-- Noted inspiration in this README section  
 
 
 2. “Ember Epoch” by camcimahir*  
@@ -33,6 +30,3 @@ This made the primary action feel more important and gave the UI a stronger them
 - Added a fire icon at the top of my UI  
 - Rethemed my game from CPU cycles to an “Oil Thrower” fire-growth theme  
 
-**Where I credited them:**  
-- Added a comment block in `main.ts` and `style.css`  
-- Documented the inspiration clearly here in the README  
