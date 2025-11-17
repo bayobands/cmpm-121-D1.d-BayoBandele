@@ -1,4 +1,3 @@
-
 body {
   background: #f8f8f8;
   display: flex;
@@ -6,4 +5,40 @@ body {
   align-items: center;
   padding-top: 40px;
   font-family: Arial, sans-serif;
+}
+
+
+/* ============================
+   COMMIT 2 — Large Main Button
+   Inspired by: camcimahir ("Ember Epoch")
+   ============================ */
+button:first-of-type {
+  background: #e25822; /* orange fire color */
+  color: white;
+  padding: 20px 32px;
+  font-size: 1.4rem;
+  border-radius: 12px;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.1s ease, background 0.2s ease;
+}
+
+button:first-of-type:hover {
+  transform: scale(1.05);
+  background: #ff6f3c;
+}
+
+/* Shop buttons (Commit 2) */
+button {
+  margin-top: 6px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Existing icon rule */
+.icon {
+  width: 64px;
+  vertical-align: top;
+  border: 1px solid salmon;
 }

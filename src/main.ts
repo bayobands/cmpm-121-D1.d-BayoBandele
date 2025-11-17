@@ -10,11 +10,12 @@ const unit = "cycles";
 // UI ELEMENTS
 // ==============================
 const counterDiv = document.createElement("div");
-counterDiv.innerHTML = `⏱️ ${counter} ${unit}`;
+counterDiv.innerHTML = `🔥 ${counter} ${unit}`;
 document.body.append(counterDiv);
 
+// Main click button
 const button = document.createElement("button");
-button.innerHTML = "🖱️ Tick CPU";
+button.innerHTML = "🔥 Throw Oil";
 document.body.append(button);
 
 const rateDiv = document.createElement("div");
@@ -31,7 +32,7 @@ document.body.append(shopDiv);
 // ==============================
 button.addEventListener("click", () => {
   counter++;
-  counterDiv.innerHTML = `⏱️ ${Math.floor(counter)} ${unit}`;
+  counterDiv.innerHTML = `🔥 ${Math.floor(counter)} ${unit}`;
 });
 
 // ==============================
@@ -134,7 +135,6 @@ function rebuildShop() {
     });
   });
 }
-
 // ==============================
 // SHOP UI REFRESH
 // ==============================
