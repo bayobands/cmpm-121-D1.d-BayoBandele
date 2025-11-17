@@ -1,3 +1,4 @@
+
 body {
   background: #f8f8f8;
   display: flex;
@@ -7,11 +8,13 @@ body {
   font-family: Arial, sans-serif;
 }
 
+/* Fire icon */
+#fire-icon {
+  width: 80px;
+  margin-bottom: 20px;
+}
 
-/* ============================
-   COMMIT 2 — Large Main Button
-   Inspired by: camcimahir ("Ember Epoch")
-   ============================ */
+
 button:first-of-type {
   background: #e25822; /* orange fire color */
   color: white;
@@ -28,7 +31,7 @@ button:first-of-type:hover {
   background: #ff6f3c;
 }
 
-/* Shop buttons (Commit 2) */
+/* Shop buttons cleanup */
 button {
   margin-top: 6px;
   padding: 10px 14px;
@@ -36,7 +39,7 @@ button {
   cursor: pointer;
 }
 
-/* Existing icon rule */
+/* Your existing icon */
 .icon {
   width: 64px;
   vertical-align: top;

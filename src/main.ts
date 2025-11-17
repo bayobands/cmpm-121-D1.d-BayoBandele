@@ -1,10 +1,20 @@
+
 // ==============================
 // GAME STATE
 // ==============================
 let counter: number = 0;
 let growthRate = 0;
 let lastTime = performance.now();
-const unit = "cycles";
+const unit = "oil";
+
+// ==============================
+// FIRE ICON
+// ==============================
+const fireIcon = document.createElement("img");
+fireIcon.id = "fire-icon";
+fireIcon.src =
+  "https://emoji.slack-edge.com/T024J4FC8/fire/227b27b7e3f656a7.png"; // looks like a flame
+document.body.append(fireIcon);
 
 // ==============================
 // UI ELEMENTS
@@ -13,8 +23,8 @@ const counterDiv = document.createElement("div");
 counterDiv.innerHTML = `🔥 ${counter} ${unit}`;
 document.body.append(counterDiv);
 
-// Main click button
 const button = document.createElement("button");
+// Main action inspired by Ember Epoch large button style
 button.innerHTML = "🔥 Throw Oil";
 document.body.append(button);
 
@@ -47,46 +57,47 @@ interface Item {
   description: string;
 }
 
+// These stay the same, just themed for oil/fire
 const items: Item[] = [
   {
     id: "A",
-    name: "Oscillator",
+    name: "Oil Bottle",
     baseCost: 10,
     rate: 0.1,
     count: 0,
-    description: "A stable clock that gently ticks out extra cycles.",
+    description: "A small bottle of oil that boosts the flames.",
   },
   {
     id: "B",
-    name: "CPU Core",
+    name: "Gas Canister",
     baseCost: 100,
     rate: 2.0,
     count: 0,
-    description: "A general-purpose processor adding steady throughput.",
+    description: "Pressurized gas that greatly accelerates burning.",
   },
   {
     id: "C",
-    name: "Server Rack",
+    name: "Fuel Drum",
     baseCost: 1000,
     rate: 50.0,
     count: 0,
-    description: "A rack of humming servers working nonstop.",
+    description: "A whole drum of fuel. The fire roars louder.",
   },
   {
     id: "D",
-    name: "Data Center",
+    name: "Chemical Accelerant",
     baseCost: 10000,
     rate: 400.0,
     count: 0,
-    description: "A warehouse of machines devoted to generating cycles.",
+    description: "Dangerous volatile mixtures that skyrocket flame output.",
   },
   {
     id: "E",
-    name: "Quantum Lab",
+    name: "Industrial Oil Pipeline",
     baseCost: 100000,
     rate: 5000.0,
     count: 0,
-    description: "Harnesses fragile qubits for mind-bending performance.",
+    description: "A massive supply system funneling constant fuel.",
   },
 ];
 
@@ -135,6 +146,7 @@ function rebuildShop() {
     });
   });
 }
+
 // ==============================
 // SHOP UI REFRESH
 // ==============================
@@ -142,17 +154,15 @@ function refreshShopButtons() {
   items.forEach((item) => {
     const btn = upgradeButtons.get(item.id)!;
     const cost = price(item.baseCost, item.count);
-    btn.textContent = `Buy ${item.name} (+${item.rate} ${unit}/sec) — cost ${
-      fmt(
-        cost,
-      )
-    } (owned ${item.count})`;
+    btn.textContent = `Buy ${item.name} (+${item.rate} ${unit}/sec) — cost ${fmt(
+      cost
+    )} (owned ${item.count})`;
     btn.disabled = counter < cost;
   });
 }
 
 function refreshUI() {
-  rateDiv.innerHTML = `Growth rate: ${growthRate.toFixed(1)} ${unit}/sec`;
+  rateDiv.innerHTML = `🔥 Growth rate: ${growthRate.toFixed(1)} ${unit}/sec`;
 
   const ownedLabel = items.map((it) => `${it.name}=${it.count}`).join(", ");
   ownedDiv.innerHTML = `Owned: ${ownedLabel}`;
@@ -168,7 +178,7 @@ function update(time: number) {
   lastTime = time;
 
   counter += (growthRate * delta) / 1000;
-  counterDiv.innerHTML = `⏱️ ${Math.floor(counter)} ${unit}`;
+  counterDiv.innerHTML = `🔥 ${Math.floor(counter)} ${unit}`;
 
   refreshUI();
   requestAnimationFrame(update);
